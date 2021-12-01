@@ -31,14 +31,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third apps (장고가 아닌 제3자가 만듬)
+    # local apps
     'mall',
 ]
+
+if DEBUG:
+    INSTALLED_APPS +=[
+        'debug_toolbar',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +59,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mydjango13.urls'
+
+if DEBUG:
+    MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    ] + MIDDLEWARE #처음에 위치 시키기 위해서
 
 TEMPLATES = [
     {
@@ -127,3 +140,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = ['127.0.0.1'] # 개발 서버를 띄우는 컴퓨터에서 디버그 툴바가 보임.
+
