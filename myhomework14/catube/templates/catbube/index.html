@@ -1,0 +1,22 @@
+{% extends "catbube.layout.html" %}
+
+{% block content %}
+    <div class="row">
+    {% for video in video_list %}
+        <div class="col-sm-3 my-3">
+            <div class="card"
+            {{ video.title }}
+            <img src="{{ video.thumbnail_file.url }}"
+                 alt="{{ video.title }}"
+                 class="card-img-top"
+            />
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ video.title }}
+                </h5>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
+</div>
