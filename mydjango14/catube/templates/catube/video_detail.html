@@ -1,0 +1,17 @@
+
+
+{% extends "catube/layout.html" %}
+
+{% block content %}
+    <h2>{{ video.title }}</h2>
+
+    {{ video.description|linebreaks }}
+    <hr/>
+
+    {{ video.video_file.url }}
+    <hr/>
+
+    <a href="/catube/">목록</a>
+
+
+{% endblock %}
