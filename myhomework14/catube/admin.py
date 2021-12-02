@@ -1,9 +1,9 @@
 from django.contrib import admin
-from catube.models import Viedo
+from catube.models import Video
 
 
 class VideoAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Viedo, VideoAdmin)
+admin.site.register(Video, VideoAdmin)
