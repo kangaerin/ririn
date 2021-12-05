@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Coffee(models.Model):
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+    image = models.ImageField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    season_menu = models.BooleanField(default=False)
