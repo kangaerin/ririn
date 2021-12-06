@@ -2,8 +2,6 @@ from django.contrib import admin
 from Pe.models import Pe
 
 
+@admin.register(Pe)
 class PEAdmin(admin.ModelAdmin):
-    pass
-
-
-admin.site.register(Pe, PEAdmin)
+    list_display = ["title"]
