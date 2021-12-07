@@ -2,13 +2,13 @@
 
 {% block content %}
     <div class="row">
-    {% for image in image_list %}
+    {% for pe in pe_list %}
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 my-3">
                 <div class="card">
-        <a href="/Pe/{{ image.pk }}/">
-            {{ Pe.title }}
-            <img src="{{ Pe.image.url }}"
-                 alt="{{ Pe.title }}"
+        <a href="/Pe/{{ pe.pk }}/">
+            {{ pe.title }}
+            <img src="{{ pe.image.url }}"
+                 alt="{{ pe.title }}"
                  class="card-img-top"/>
             </a>
         </div>

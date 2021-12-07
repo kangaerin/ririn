@@ -9,6 +9,6 @@ def index(request: HttpRequest) -> HttpResponse:
         request,
         "Pe/index.html",
         {
-            "Image_list": qs,
+            "pe_list": qs,
         }
     )
