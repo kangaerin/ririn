@@ -26,6 +26,7 @@ class Post(models.Model):
 
 
 class Comment(TimestampedModel):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     message = models.TextField()
     author_name = models.CharField(max_length=20)
 
