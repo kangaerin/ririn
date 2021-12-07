@@ -17,14 +17,35 @@ class Post(models.Model):
     Love = models.BooleanField(default=True)
     tag_set = models.ManyToManyField('Tag', blank=True)
 
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name = "포스트"
+        verbose_name_plural = "포스팅"
+
 
 class Comment(TimestampedModel):
     message = models.TextField()
     author_name = models.CharField(max_length=20)
 
+    def __str__(self) -> str:
+        return self.author_name
+
+    class Meta:
+        verbose_name = "댓글"
+        verbose_name_plural = "댓글 목록"
+
 
 class Tag(TimestampedModel):
     name = models.CharField(max_length=10, db_index=True)
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        verbose_name = "태그"
+        verbose_name_plural = "태그 목록"
 
 
 
