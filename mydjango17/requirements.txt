@@ -1,4 +1,5 @@
 django~=3.2.0
 pillow
+django-debug-toolbar
 
-# 사용하는 라이브러리 명시 
+# 사용하는 라이브러리 명시
