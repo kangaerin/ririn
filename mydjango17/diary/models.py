@@ -4,10 +4,10 @@ from django.db import models
 # 중복되는 항목
 class TimestampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_created=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        abstract = True # 추상 클래스로서 DB 테이블이 생기지 않음
+        abstract = True  # 추상 클래스로서 DB 테이블이 생기지 않음
 
 
 class Post(TimestampedModel):
@@ -26,7 +26,10 @@ class Post(TimestampedModel):
 
 
 class Comment(TimestampedModel):
+    # 외래키 : 정수값
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    # 외래키에 한해서 post_id를 자동으로 생성함.
+
     author_name = models.CharField(max_length=20)
     message = models.TextField()
     
