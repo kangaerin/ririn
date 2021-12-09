@@ -22,7 +22,7 @@ class Post(models.Model):
 
     class Meta:
         verbose_name = "포스트"
-        verbose_name_plural = "포스팅"
+        verbose_name_plural = "포스팅 목록"
 
 
 class Comment(TimestampedModel):
