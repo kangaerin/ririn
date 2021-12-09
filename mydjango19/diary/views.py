@@ -39,12 +39,16 @@ def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
 
 
 def post_new(request: HttpRequest) -> HttpResponse:
-    if request.method == "POST":
+    if request.method == "POST": # 항상 대문자
+        # POST 요청을 받았을 때
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.ip = request.META["REMOTE_ADDR"]
+            post.save()
             return redirect("diary:post_list")
     else:
+        # GET 요청을 받았을 때
         form = PostForm()
 
     return render(request, "diary/post_form.html", {
@@ -59,7 +63,7 @@ def post_edit(request: HttpRequest, pk: int) -> HttpResponse:
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save()
+            form.save
             return redirect("diary:post_list")
     else:
         form = PostForm(instance=post)

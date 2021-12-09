@@ -1,3 +1,4 @@
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 
@@ -12,10 +13,17 @@ class TimestampedModel(models.Model):
 
 class Post(TimestampedModel):
     author_name = models.CharField(max_length=20)
-    title = models.CharField(max_length=200, db_index=True)
+    title = models.CharField(
+        max_length=200,
+        db_index=True,
+        validators=[
+            MinLengthValidator(3, message="3글자 이상 입력해주세요."),
+        ],
+    )
     content = models.TextField()
     photo = models.ImageField(upload_to="diary/post/%Y/%m/%d")
     tag_set = models.ManyToManyField('Tag', blank=True)
+    ip = models.GenericIPAddressField()
 
     def __str__(self) -> str:
         return self.title
@@ -32,7 +40,7 @@ class Comment(TimestampedModel):
 
     author_name = models.CharField(max_length=20)
     message = models.TextField()
-    
+
     class Meta:
         verbose_name = "댓글"
         verbose_name_plural = "댓글 목록"
@@ -43,9 +51,7 @@ class Tag(TimestampedModel):
 
     def __str__(self) -> str:
         return self.name
-    
+
     class Meta:
         verbose_name = "태그"
         verbose_name_plural = "태그 목록"
-
-
