@@ -57,9 +57,25 @@ def post_new(request: HttpRequest) -> HttpResponse:
         "form": form,
     })
 
+# def post_new(request: HttpRequest) -> HttpResponse:
+# if request.method == "GET"
+#     form = PostForm()
+# else:
+#     form = PostForm(request.POST, request.FILES)
+# if form.is_valid():
+#     post = form.save(commit=False)
+# post.ip = request.MERA["REMOTE_ADDR"]
+# post.save()
+# messages.success(request, "성공적으로 저장했습니다.")
+# return redirect("diary/post_list")
+#
+# return render(request, "diary/post_form.html", {
+#     "form": form,
+# })
+
 
 def post_edit(request: HttpRequest, pk: int) -> HttpResponse:
-    # 아래 코드는 ModelForm에 한해 응답하는 코드.
+    # 아래 코드는 ModelForm에 한해 동작하는 코드.
     post = Post.objects.get(pk=pk)
 
     if request.method == "POST":
