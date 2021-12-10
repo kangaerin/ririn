@@ -23,6 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third apps
+    'bootstrap5',
+    # local apps
     'shop',
 ]
 
