@@ -3,8 +3,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from coffee.views import index
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('coffee/', index),
+    path('coffee/new/', "post_list.html"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
