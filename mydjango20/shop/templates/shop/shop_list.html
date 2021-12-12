@@ -1,0 +1,19 @@
+{% extends "diary/layout.html" %}
+
+
+{% block content %}
+    <form action="" method="get">
+        <input type="text" name="query" value="{{ request.GET.query }}"/>
+        <input type="submit" value="검색"/>
+    </form>
+
+    <ul>
+        {% for shop in shop_list %}
+            <li>
+                <a href="{% url "shop:shop_detail" shop.pk %}">
+                    {{ shop.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
