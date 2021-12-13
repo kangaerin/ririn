@@ -11,7 +11,7 @@
         {% for shop in shop_list %}
             <li>
                 <a href="{% url "shop:shop_detail" shop.pk %}">
-                    {{ shop.title }}
+                    {{ shop.name }}
                 </a>
             </li>
         {% endfor %}
