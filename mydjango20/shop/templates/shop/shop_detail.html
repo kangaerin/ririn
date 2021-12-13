@@ -5,10 +5,16 @@
 
     {% for tag in shop.tag_set.all %}
         <span class="badge" style="background-color: darkorchid;">{{ tag.name }}</span>
-    {%  endfor %}
+    {% endfor %}
 
     {{ shop.description }}
 
+    <a href="{% url "shop:shop_edit" shop.pk %}">
+    Edit
+    </a>
+
     <hr/>
     {{ shop.created_at|timesince }} 전에 등록
+    <hr/>
+    <a href="{% url "shop:shop_list" %}></a>
 {% endblock %}
