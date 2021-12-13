@@ -5,6 +5,21 @@
 
     <h2>Shop List </h2>
 
+    <ul>
+        <li>
+            <a href="?ccategory_id=">
+                전체
+            </a>
+        </li>
+        {% for category in category_list %}
+            <li>
+                <a href="?category_id={{ category.pk }}">
+                    {{ category.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
     <form action="" method="get">
         <input type="text"
                name="query"
