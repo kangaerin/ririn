@@ -1,0 +1,30 @@
+{% load bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>반려동물 물품점</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+
+{% bootstrap_messages %}
+
+<div class="container">
+
+    <h1>화난 아이들을 자본으로 달래보세요!</h1>
+
+    {% block content %}
+    {% endblock %}
+
+    <hr/>
+    &copy; 2021 ririn.
+</div>
+
+</body>
+</html>
