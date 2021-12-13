@@ -12,9 +12,9 @@ def shop_list(request: HttpRequest) -> HttpResponse:
     if query:
         qs = qs.filter(title__icontains=query)
 
-        return render(request, "shop/shop_list.html", {
-            "shop_list": qs,
-        })
+    return render(request, "shop/shop_list.html", {
+        "shop_list": qs,
+    })
 
 
 def shop_detail(request: HttpRequest, pk: int) -> HttpResponse:
