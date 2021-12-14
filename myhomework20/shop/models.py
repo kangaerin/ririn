@@ -24,6 +24,7 @@ class Post(TimestampedModel):
     title = models.CharField(max_length=50, db_index=True)
     description = models.TextField(blank=True)
     photo = models.ImageField(blank=True)
+    tag_set = models.ManyToManyField('Tag', blank=True)
 
     def __str__(self) -> str:  # 포스팅시 제목이 보이게
         return self.title
@@ -34,8 +35,10 @@ class Post(TimestampedModel):
 
 
 class Comment(TimestampedModel):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     message = models.TextField()
+
 
     def __str__(self) -> str:
         return self.name

@@ -1,8 +1,26 @@
 {% extends 'shop/layout.html' %}
+{% load bootstrap5 %}
 
 {% block content %}
 
     <h2>세상의 모든 것을 판매하는 잡화점</h2>
+
+    <hr/>
+    <a href="{% url "shop:post_new" %}"
+       class="btn btn-primary">
+        게시글 작성하기
+    </a>
+
+    <hr/>
+    <form action="" method="get">
+        <input type="text"
+               name="query"
+               value="{{ request.GET.query }}"
+               placeholder="검색어를 입력해주세요."/>
+        <input type="submit" value="검색"/>
+
+    </form>
+
 
     <div class="row">
         {% for post in post_list %}

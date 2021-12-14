@@ -1,0 +1,16 @@
+{% extends 'shop/layout.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <h2>{{ tag_name }}</h2>
+
+    <div>
+        {% for post in post_list %}
+            <div>
+                <a href="{% url 'shop:post_detail' post.pk %}">
+                    {{ post.title }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
