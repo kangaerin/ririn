@@ -9,10 +9,22 @@ class TimestampedModel(models.Model):
         abstract = True
 
 
+class Category(TimestampedModel):
+    name = models.CharField(max_length=100, unique=True)
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        ordering = ["-id"]
+
+
 class Post(TimestampedModel):
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=30, db_index=True)
     description = models.TextField(blank=True)
     photo = models.ImageField(blank=True)
+    tag_set = models.ManyToManyField('Tag', blank=True)
 
     def __str__(self) -> str:  # 포스팅시 제목이 보이게
         return self.title
@@ -33,3 +45,14 @@ class Comment(TimestampedModel):
     class Meta:
         verbose_name = "댓글"
         verbose_name_plural = "댓글 목록"
+
+
+class Tag(TimestampedModel):
+    name = models.CharField(max_length=20, unique=True)
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        verbose_name = "태그"
+        verbose_name_plural = "태그 목록"
