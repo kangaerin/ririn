@@ -10,13 +10,13 @@ def post_list(request: HttpRequest) -> HttpResponse:
         qs = qs.filter(name__icontains=query)
 
     return render(request, "shop/post_list.html", {
-        "shop_list": qs,
+        "post_list": qs,
     })
 
 
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     shop = get_object_or_404(Post, pk=pk)
     return render(request, "shop/post_detail.html", {
-        "shop": shop,
+        "post": shop,
     })
 
