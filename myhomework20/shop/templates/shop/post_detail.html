@@ -1,0 +1,32 @@
+{% extends 'shop/layout.html' %}
+
+{% block content %}
+
+    <h2>{{ post.title }}</h2>
+
+{#    <p>#}
+{#        태그 :#}
+{#        {% for tag in tag_list %}#}
+{#            <a href="{% url "shop:tag_detail" tag.name %}"#}
+{#               class="badge bg-info">#}
+{#                {{ tag.name }}#}
+{#            </a>#}
+{#        {% endfor %}#}
+{#    </p>#}
+
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 my-3">
+    <a href="{% url "shop:post_detail" post.pk %}">
+    </a>
+    <img src="{{ post.photo.url }}"
+         alt="{{ post.title }}"/>
+    </div>
+
+    {{ post.description|linebreaks }}
+
+
+
+
+
+
+
+{% endblock %}
