@@ -3,10 +3,19 @@
 {% block content %}
     <h2>{{ post.title }}</h2>
 
-    {{ post.description }}
 
-    <hr />
-    {{ post.created_at|timesince }} 전에 등록
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 my-3">
+            <a href="{% url "shop:post_detail" post.pk %}">
+            </a>
+            <img src="{{ post.photo.url }}"
+                 alt="{{ post.title }}"
+            />
+
+            {{ post.description }}
+
+
+            <hr/>
+            {{ post.created_at|timesince }} 전에 등록
 
 
 {% endblock %}

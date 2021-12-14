@@ -1,18 +1,27 @@
 {% extends 'shop/layout.html' %}
 
 {% block content %}
-
     <h2>반려동물 장난감 전문점입니다.</h2>
-
     <div class="row">
-        <ul>
-            {% for post in post_list %}
-                <li>
-                    <a href="{% url "shop:post_detail" post.pk %}">
+        {% for post in post_list %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ post.photo.url }}"
+                     alt="{{ post.title }}"
+                     class="card-img-top"
+                />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">
                         {{ post.title }}
+                    </h5>
+                    <p class="card-text">
+                        {{ post.description }}
+                    </p>
+                    <a href="{% url "shop:post_detail" post.pk %}"
+                       class="btn btn-primary">게시글 보러가기
                     </a>
-                </li>
-            {% endfor %}
-        </ul>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

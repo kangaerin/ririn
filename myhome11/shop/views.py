@@ -15,8 +15,8 @@ def post_list(request: HttpRequest) -> HttpResponse:
 
 
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
-    shop = get_object_or_404(Post, pk=pk)
+    post = get_object_or_404(Post, pk=pk)
     return render(request, "shop/post_detail.html", {
-        "post": shop,
+        "post": post,
     })
 
