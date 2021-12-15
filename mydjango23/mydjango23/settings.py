@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     # local apps
     'blog',
+    'accounts',
 ]
 
 if DEBUG:
