@@ -28,7 +28,8 @@ def post_new(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             saved_post = form.save()
             messages.success(request, "새로운 포스팅을 저장했습니다.")
-            return redirect("blog:post_detail", saved_post.pk)
+            return redirect(saved_post)
+            # return redirect("blog:post_detail", saved_post.pk)
     else:
         form = PostForm()
 
@@ -45,7 +46,9 @@ def post_edit(request: HttpResponse, pk: int) -> HttpResponse:
         if form.is_valid():
             saved_post = form.save()
             messages.success(request, f"#{pk}번 포스팅을 저장했습니다.")
-            return redirect('blog:post_detail', saved_post.pk)
+            return redirect(saved_post)
+            # △ get_absolute_url이 구현안되어있으면 오류나는 코드.
+            # return redirect('blog:post_detail', saved_post.pk)
     else:
         form = PostForm(instance=post)
 
