@@ -57,11 +57,11 @@ def post_edit(request: HttpResponse, pk: int) -> HttpResponse:
 
 def post_delete(request: HttpRequest, pk: int) -> HttpResponse:
     post = get_object_or_404(Post, pk=pk)
-    # GET요청 : 정말 삭제를 할 것인지 한 번 더 물어봅니다.
-    # POST요청 : 삭제를 하고, 다른 주소로 이동을 시킵니다.
+    # GET 요청 : 정말 삭제를 할 것인지 한 번 더 물어봅니다.
+    # POST 요청 : 삭제를 하고, 다른 주소로 이동을 시킵니다.
 
     if request.method == "POST":
-        post.delete() #실제로 db에 dedlte 쿼리 실행
+        post.delete()  # 실제로 db에 dedlte 쿼리 실행
         messages.success(request, f"{pk}번 포스팅을 삭제했습니다.")
         return redirect("blog:post_list")
 
