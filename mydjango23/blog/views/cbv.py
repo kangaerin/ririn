@@ -31,7 +31,6 @@ class PostCreatView(CreateView):
 
 post_new = PostCreatView.as_view()
 
-
 # 위와 동일  / # success_url = reverse_lazy('blog:post_list')/ 일때
 # post_new = CreateView.as_view(
 #     model=Post,
@@ -44,9 +43,9 @@ class PostUpdateView(UpdateView):
     model = Post
     form_class = PostForm
 
-    def get_success_url(self):
-        post_pk = self.object.pk
-        return reverse("blog:post_detail", args=[post_pk])
+    # def get_success_url(self):
+    #     post_pk = self.object.pk
+    #     return reverse("blog:post_detail", args=[post_pk])
 
 
 post_edit = PostUpdateView.as_view()
