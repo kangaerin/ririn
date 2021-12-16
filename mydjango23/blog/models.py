@@ -1,3 +1,4 @@
+import tablib
 from django.db import models
 from django.urls import reverse
 
@@ -46,6 +47,23 @@ class Post(TimestampedModel):
     # detail 페이지를 구현하자마자, 즉시 아래 method를 구현합니다.
     def get_absolute_url(self) -> str:
         return reverse("blog:post_detail", args=[self.pk])
+
+    @classmethod
+    def get_tabular_data(cls, queryset, format="xlsx") -> bytes:
+        dataset = tablib.Dataset()
+        dataset.headers = ["id", "제목", "생성일자", "업데이트 일자"]
+
+        for post in queryset:
+            dataset.append(
+                [
+                    post.id,
+                    post.title,
+                    post.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+                    post.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
+                ]
+            )
+
+        return dataset.export(format)
 
     class Meta:
         ordering = ['id']
