@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Category, Post, Comment, Tag
+from blog.models import Category, Post, Comment, Tag, Subscriber
 
 
 # 이름은 어떻게 지어도 상관없지만 연관있어보이게 짓는게 좋음.
@@ -20,4 +20,9 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Subscriber)
+class Subscriber(admin.ModelAdmin):
     pass
