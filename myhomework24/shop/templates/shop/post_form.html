@@ -1,0 +1,34 @@
+{% extends 'shop/layout.html' %}
+
+{% block content %}
+
+    <h2> 수정 폼 </h2>
+
+               <style>
+    body {
+        background-color: lightgray;
+    }
+    </style>
+
+    <form action="" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit"/>
+    </form>
+
+        <hr/>
+
+    <a href="{% url "shop:post_list" %}" class="btn btn-info">
+        목록으로
+    </a>
+    {% if post %}
+        <a href="{% url "shop:post_detail" post.pk %}" class="btn btn-info">
+            취소
+        </a>
+    {% endif %}
+
+
+
+{% endblock %}

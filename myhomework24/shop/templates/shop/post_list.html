@@ -1,0 +1,43 @@
+{% extends 'shop/layout.html' %}
+
+{% block content %}
+    <h3>가게 목록</h3>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <hr/>
+
+            <style>
+                body {
+                    background-color: lightcyan;
+                }
+            </style>
+
+            <form action="" method="get" class="mb-3">
+                <input type="text"
+                       name="query"
+                       placeholder="바라는 물품을 검색하세요."
+                       value="{{ request.GET.query }}"/>
+                <input type="submit" value="검색"/>
+            </form>
+
+            <hr/>
+
+            {% for post in post_list %}
+                <a href="{% url "shop:post_detail" post.pk %}">
+                    {{ post.title|linebreaks }}
+
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr/>
+
+    <a href="{% url "shop:post_new" %}" class="btn btn-info">
+        포스팅작성
+    </a>
+
+
+
+{% endblock %}
