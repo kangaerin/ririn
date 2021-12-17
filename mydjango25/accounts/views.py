@@ -17,8 +17,8 @@ login = LoginView.as_view(
 
 # TODO : 커스텀 CBV를 만든다면, LoginRequiredMixin를 상속받도록 할 수 있다.
 profile = login_required(
-    TemplateView.as_view,
-    template_name="accounts/profile.html",
+    TemplateView.as_view(
+        template_name="accounts/profile.html"),
 )
 
 logout = LogoutView.as_view(
