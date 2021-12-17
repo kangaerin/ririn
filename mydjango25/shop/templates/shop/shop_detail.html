@@ -21,6 +21,10 @@
     <hr/>
     <h3>리뷰</h3>
 
+    <a href="{% url 'shop:review_new' shop.pk %}" class="btn btn-info">
+        리뷰 작성
+    </a>
+
     {% for review in shop.review_set.all %}
         <div>
             {{ review.message }}
