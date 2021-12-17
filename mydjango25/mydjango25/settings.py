@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     # local apps
     'shop',
+    'accounts',
 ]
 
 if DEBUG:
