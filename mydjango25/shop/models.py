@@ -8,8 +8,6 @@ class TimestampedModel(models.Model):
 
     class Meta:
         abstract = True
-        verbose_name = "카테고리"
-        verbose_name_plural = "카테고리 목록"
 
 
 class Category(TimestampedModel):
@@ -20,8 +18,8 @@ class Category(TimestampedModel):
 
     class Meta:
         ordering = ['name']
-        verbose_name = "상점"
-        verbose_name_plural = "상점 목록"
+        verbose_name = "카테고리"
+        verbose_name_plural = "카테고리 목록"
 
 
 class Shop(TimestampedModel):
