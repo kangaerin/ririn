@@ -11,7 +11,16 @@ from shop.models import Shop, Category, Review
 
 class ShopListView(ListView):
     model = Shop
-    paginate_by = 3 # 한페이지에 보이는 shop 수
+    paginate_by = 3  # 한페이지에 보이는 shop 수
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+
+        query = self.request.GET.get("query", "")
+        if query:
+            qs = qs.filter(name__icontains=query)
+
+            return qs
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
