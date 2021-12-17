@@ -14,7 +14,7 @@
         {{ tag.name|linebreaks }}
     {% endfor %}
 
-    <img src="{{ post.photo }}" alt="{{ post.title }}">
+    <img src="{{ post.photo.url }}" alt="{{ post.title }}">
 
     {{ post.content|linebreaks }}
 
