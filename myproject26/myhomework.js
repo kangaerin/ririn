@@ -27,8 +27,6 @@ const animal_names = [
 ];
   
 
-
-
 // create a function to shuffle a list
 // function shuffle(a) {
 //     var j, x, i;
@@ -50,7 +48,11 @@ const animal_names = [
 const {question} = require('readline-sync');
 const number = question("start -> enter");
 
-const word = animal_names[Math.floor(Math.random() * animal_names.length)]
+// const word = animal_names[Math.floor(Math.random() * animal_names.length)]
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
 
 const begin_time = Date.now();
 let OK_count = 0;
