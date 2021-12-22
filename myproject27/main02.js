@@ -11,3 +11,17 @@ const result = song_array.filter(song => song.artist === '방탄소년단');
 for (const song of result) {
     console.log(song.artist, song.title, song.like);
 }
+
+// ▽ 해설
+
+// 값 비교는 ===이 좀더 정확함.
+// .filter에 (song)을 써도 되지만 artist를 뽑아올거면 {}안에 넣어야함. 
+
+// const bts_song_array = song_array.filter(
+//     ({ artist }) => artist === "방탄소년단"
+// );
+
+
+// for (const song of btssong_array) {
+//     console.log(song.like, song.title);
+// }

@@ -10,3 +10,12 @@ const result = song_array.filter(song => song.like >=200000 );
 for (const song of result) {
     console.log(song.like, song.title, song.artist);
 }
+
+// 200_000은(중간 _) 최근에 추가된 기능. 
+// const filtered_song_array = song_array
+//     .filter(({ like }) => like >= 200_000);
+
+
+// for (const song of filtered_song_array) {
+//     console.log(`[${song.like}] ${song.title} ${song.artist}`);
+// }
