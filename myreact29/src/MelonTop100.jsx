@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import initialSong_List from './data/melon_data.json';
 import './MelonTop100.css';
 
@@ -15,7 +16,7 @@ function MelonTop100() {
   return (
     <div>
       <h2>멜론 top 100</h2>
-      <button onClick={handleClick}>로딩</button>
+      <Button onClick={handleClick}>로딩</Button>
       <ul className="songList">
         {songList.map((song) => {
           return (
