@@ -7,7 +7,7 @@ import MelonTop100 from 'MelonTop100';
 function App() {
   return (
     <div>
-      <h1>안녕 리액트!!</h1>
+      <h2>안녕 리액트!!</h2>
       <MelonSearch />
       {/* <MelonTop100 />
       <Counter />

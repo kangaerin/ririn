@@ -1,8 +1,9 @@
-import { Input } from 'antd';
+import { Input, Table, Tag, Space } from 'antd';
 import { useState } from 'react';
 
 import Axios from 'axios';
 import jsonAdapter from 'axios-jsonp';
+import Avatar from 'antd/lib/avatar/avatar';
 
 function MelonSearch() {
   const [query, setQuery] = useState('');
@@ -53,9 +54,19 @@ function MelonSearch() {
   };
 
   return (
-    <div style={{ width: 300, margin: '0 auto' }}>
-      <h2>멜론 검색</h2>
-      검색어 : {query}
+    <div
+      style={{
+        height: '70px',
+        width: 500,
+        margin: '0 auto',
+        color: '#000',
+        lineHeight: '120px',
+        textAlign: 'center',
+        background: '#364d79',
+      }}
+    >
+      <h5> ♬ </h5>
+      <h3> 멜론 검색 </h3>
       <Input
         placeholder="검색어를 입력해주세요."
         onChange={handleChange}
@@ -63,8 +74,8 @@ function MelonSearch() {
       />
       {songList.map((song) => {
         return (
-          <div>
-            <img src={song.ALBUMIMG} />
+          <div style={{ margin: '0' }}>
+            <Avatar src={song.ALBUMIMG} />
             {song.SONGNAME} by {song.ARTISTNAME}
           </div>
         );
