@@ -28,7 +28,7 @@ function MelonTop100() {
       <ul className="songList">
         {songList.map((song) => {
           return (
-            <li>
+            <li key={song.song_no}>
               [{song.rank}] {song.title} by {song.artist}
             </li>
           );
