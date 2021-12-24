@@ -1,9 +1,8 @@
-import { Input, Table, Tag, Space } from 'antd';
+import { Avatar, Input, List, Typography, notification } from 'antd';
 import { useState } from 'react';
 
 import Axios from 'axios';
 import jsonAdapter from 'axios-jsonp';
-import Avatar from 'antd/lib/avatar/avatar';
 
 function MelonSearch() {
   const [query, setQuery] = useState('');
@@ -36,7 +35,7 @@ function MelonSearch() {
       .then((response) => {
         // ALBUMCONTENTS, ARTISTCONTENTS
         const {
-          data: { SONGCONTENTS: searchedSongList },
+          data: { SONGCONTENTS: searchedSongList = [] },
         } = response;
 
         console.group('멜론 검색결과');
@@ -45,26 +44,28 @@ function MelonSearch() {
         console.groupEnd();
 
         setSongList(searchedSongList);
+
+        const type = 'info';
+        notification.open({
+          message: '멜론 검색',
+          description: `${searchedSongList.length}개의 노래 검색 결과가 있습니다.`,
+        });
       })
       .catch((error) => {
         console.group('멜론 검색 에러');
         console.log(error);
         console.groupEnd();
+
+        notification.error({
+          message: '멜론 검색 에러',
+          // 주의 : 유저 친화적인 에러 메세지는 아님.
+          description: JSON.stringify(error),
+        });
       });
   };
 
   return (
-    <div
-      style={{
-        height: '70px',
-        width: 500,
-        margin: '0 auto',
-        color: '#000',
-        lineHeight: '120px',
-        textAlign: 'center',
-        background: '#364d79',
-      }}
-    >
+    <div style={{ width: 300, textAlign: 'center', margin: '0' }}>
       <h5> ♬ </h5>
       <h3> 멜론 검색 </h3>
       <Input
@@ -72,14 +73,35 @@ function MelonSearch() {
         onChange={handleChange}
         onPressEnter={handlePreessEnter}
       />
-      {songList.map((song) => {
+      <List
+        dataSource={songList}
+        renderItem={(song) => {
+          return (
+            <List.Item>
+              <List.Item.Meta avatar={<Avatar src={song.ALBUMIMG} />} />
+              <Typography.Text
+                onClick={() => {
+                  console.log(`clicked ${JSON.stringify(song)}`);
+                }}
+              >
+                <a
+                  href={`https://www.melon.com/song/detail.htm?songId=${song.SONGID}`}
+                  target={'_blank'}
+                >
+                  {song.SONGNAME}
+                </a>
+              </Typography.Text>
+            </List.Item>
+          );
+        }}
+      />
+      {/* {songList.map((song) => {
         return (
-          <div style={{ margin: '0' }}>
-            <Avatar src={song.ALBUMIMG} />
+          <div key={song.SongID}>
             {song.SONGNAME} by {song.ARTISTNAME}
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }
