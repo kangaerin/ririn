@@ -6,9 +6,6 @@ import { useState } from "react";
 
 function App() {
   const [pageName, setPageName] = useState("Joing");
-  const handleClick = (pageName) => {
-    setPageName(pageName);
-  };
 
   return (
     <>
