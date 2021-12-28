@@ -5,31 +5,31 @@ import ProfileCard from "./ProfileCard";
 import { useState } from "react";
 
 function App() {
-  const [pageName, setPageName] = useState("Joing");
+  const [pageNo, setPageNo] = useState("Joing");
 
   return (
     <>
-      {pageName == "Joing" ? (
+      {pageNo == "Joing" ? (
         <ProfileCard
-          changePageName={setPageName}
+          changePageName={setPageNo}
           name="Joing"
           role="gksrmfdl Rowudy"
           facebook="aerin.facebook"
           email="rosyty2@naver.com"
           profileimage={`/profile-images/member1.jpg`}
         />
-      ) : pageName == "DCODELAB" ? (
+      ) : pageNo == "DCODELAB" ? (
         <ProfileCard
-          changePageName={setPageName}
+          changePageName={setPageNo}
           name="DCODELAB"
           role="gksrmfdms skdhwlf dksgspdy."
           facebook="arrrr.facebook"
           email="aaaa@naver.com"
           profileimage={`/profile-images/member2.jpg`}
         />
-      ) : pageName == "DlLAB" ? (
+      ) : pageNo == "DlLAB" ? (
         <ProfileCard
-          changePageName={setPageName}
+          changePageName={setPageNo}
           name="DlLAB"
           role="gksrmfdms skdhwlf dksgspdy."
           facebook="arrrr.facebook"
@@ -38,7 +38,7 @@ function App() {
         />
       ) : (
         <ProfileCard
-          changePageName={setPageName}
+          changePageName={setPageNo}
           name="asdgdg"
           role="gksrmfdms skdhwlf dksgspdy."
           facebook="arrrr.facebook"
