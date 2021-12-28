@@ -7,7 +7,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
-function ProfileCard({ name, facebook, role, email }) {
+function ProfileCard({
+  name,
+  facebook,
+  role,
+  email,
+  profileimage,
+  changePageName,
+}) {
   return (
     <>
       <section>
@@ -21,7 +28,7 @@ function ProfileCard({ name, facebook, role, email }) {
         </nav>
 
         <article className="profile">
-          <img src={`/profile-images/member1.jpg`} alter="프로필이미지" />
+          <img src={profileimage} alter="프로필이미지" />
           <h1>{name}</h1>
           <h2>{role}</h2>
           <a href="#" class="btnView">
@@ -36,7 +43,10 @@ function ProfileCard({ name, facebook, role, email }) {
           <span style={{ margin: "10px" }}>{email}</span>
         </ul>
         <nav className="others">
-          <a href="member1.html" class="on"></a>
+          <a onClick={() => changePageName("Joing")}></a>
+          <a onClick={() => changePageName("DCODELAB")}></a>
+          <a onClick={() => changePageName("DlLAB")}></a>
+          <a onClick={() => changePageName("asdgdg")}></a>
         </nav>
       </section>
     </>
