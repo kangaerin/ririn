@@ -4,10 +4,12 @@
 const { melon_data: song_array } = require("./melon_data");
 
 const filtered_title_array = song_array
-    .filter(({ like }) => like >= 200_000)
-    .map(({ title }) => title);
+  .filter(({ like }) => like >= 200_000)
+  .map(({ title }) => title);
 
+// map으로 title을 filtered_titled_array가 title만 가져오게 한다는 것인지
 
-for (const title of filtered_title_array) {
-    console.log(title);
-}
+// for (const title of filtered_title_array) {
+//   console.log(title);
+// }
+console.log(filtered_title_array);

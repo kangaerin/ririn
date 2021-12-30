@@ -20,7 +20,6 @@ function ProfileCard({ name, facebook, role, email, profileimage, setPageNo }) {
               <FontAwesomeIcon icon={faStickyNote} />
             </a>
           </nav>
-
           <article className="profile">
             <img src={profileimage} alter="프로필이미지" />
             <h1>{name}</h1>
@@ -41,6 +40,8 @@ function ProfileCard({ name, facebook, role, email, profileimage, setPageNo }) {
             <a onClick={() => setPageNo("DCODELAB")}></a>
             <a onClick={() => setPageNo("DlLAB")}></a>
             <a onClick={() => setPageNo("asdgdg")}></a>
+            <a onClick={() => setPageNo("aaa")}></a>
+            <a onClick={() => setPageNo("bbb")}></a>
           </nav>
         </section>
       </div>

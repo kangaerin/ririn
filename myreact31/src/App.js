@@ -9,10 +9,10 @@ function App() {
 
   return (
     <>
-      {profileList.map((profile) => {
+      {profileList.map((profile, index) => {
         if (pageNo === profile.name)
           return (
-            <div className={profile.id}>
+            <div className={`member${(index % 4) + 1}`}>
               <ProfileCard
                 name={profile.name}
                 role={profile.role}
