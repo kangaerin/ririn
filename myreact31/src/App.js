@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 // import PageLotto from "./page/PageLotto";
 import ProfileCard from "./ProfileCard";
@@ -13,14 +12,16 @@ function App() {
       {profileList.map((profile) => {
         if (pageNo === profile.name)
           return (
-            <ProfileCard
-              name={profile.name}
-              role={profile.role}
-              facebook={profile.facebook}
-              email={profile.email}
-              profileimage={profile.profileimage}
-              setPageNo={setPageNo}
-            />
+            <div className={profile.id}>
+              <ProfileCard
+                name={profile.name}
+                role={profile.role}
+                facebook={profile.facebook}
+                email={profile.email}
+                profileimage={profile.profileimage}
+                setPageNo={setPageNo}
+              />
+            </div>
           );
       })}
       )
