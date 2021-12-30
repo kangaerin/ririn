@@ -3,49 +3,27 @@ import "./App.css";
 // import PageLotto from "./page/PageLotto";
 import ProfileCard from "./ProfileCard";
 import { useState } from "react";
+import profileList from "./profile_2.json";
 
 function App() {
   const [pageNo, setPageNo] = useState("Joing");
 
   return (
     <>
-      {pageNo == "Joing" ? (
-        <ProfileCard
-          changePageName={setPageNo}
-          name="Joing"
-          role="gksrmfdl Rowudy"
-          facebook="aerin.facebook"
-          email="rosyty2@naver.com"
-          profileimage={`/profile-images/member1.jpg`}
-        />
-      ) : pageNo == "DCODELAB" ? (
-        <ProfileCard
-          changePageName={setPageNo}
-          name="DCODELAB"
-          role="gksrmfdms skdhwlf dksgspdy."
-          facebook="arrrr.facebook"
-          email="aaaa@naver.com"
-          profileimage={`/profile-images/member2.jpg`}
-        />
-      ) : pageNo == "DlLAB" ? (
-        <ProfileCard
-          changePageName={setPageNo}
-          name="DlLAB"
-          role="gksrmfdms skdhwlf dksgspdy."
-          facebook="arrrr.facebook"
-          email="aaaa@naver.com"
-          profileimage={`/profile-images/member3.jpg`}
-        />
-      ) : (
-        <ProfileCard
-          changePageName={setPageNo}
-          name="asdgdg"
-          role="gksrmfdms skdhwlf dksgspdy."
-          facebook="arrrr.facebook"
-          email="aaaa@naver.com"
-          profileimage={`/profile-images/member4.jpg`}
-        />
-      )}
+      {profileList.map((profile) => {
+        if (pageNo === profile.name)
+          return (
+            <ProfileCard
+              name={profile.name}
+              role={profile.role}
+              facebook={profile.facebook}
+              email={profile.email}
+              profileimage={profile.profileimage}
+              setPageNo={setPageNo}
+            />
+          );
+      })}
+      )
     </>
   );
 
