@@ -12,7 +12,10 @@ const INITIAL_STATE = [
 
 function TodoList() {
   const [todoList, setTodoList] = useState(INITIAL_STATE);
-  const [fieldValues, handleChange] = useFieldValues();
+  const [fieldValues, handleChange, clearFieldValues] = useFieldValues({
+    content: '',
+    color: 'Amber',
+  });
 
   const removeTodo = (todoIndex) => {
     setTodoList((prevTodoList) =>
@@ -42,7 +45,7 @@ function TodoList() {
     <div className="todo-list">
       <h2>Todo List</h2>
 
-      <TodoForm handleChange={handleChange} />
+      <TodoForm fieldValues={fieldValues} handleChange={handleChange} />
       <hr />
       {JSON.stringify(fieldValues)}
 
@@ -52,6 +55,14 @@ function TodoList() {
         onChange={changeInputText}
         onKeyPress={appendInputText}
       /> */}
+
+      <button
+        className="bg-red-500 text-gray-100"
+        cursor-pointer
+        onClick={() => clearFieldValues()}
+      >
+        clear
+      </button>
 
       {todoList.map((todo, index) => (
         <Todo
