@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 기본 transition 추가 */
+* {
+  transition: all 0.4s;
+}
