@@ -29,22 +29,26 @@ function Counter3() {
   //     return setState(Minus);
   //   };
 
-  const handlePlus = () => {
-    setState((prevState) => ({
-      ...prevState,
-      value: prevState.value + 1,
-    }));
-  };
+  //   // [] 배열 {} 객체 ()튜플
+  //   // setState에 ()가 들어가고 const ss = {}에서 const ss를 제외하고가 가능?>가능
+  //6번 + -
+  //  const handlePlus = () => {
+  //     setState((prevState) => ({
+  //       ...prevState,
+  //       value: prevState.value + 1,
+  //     }));
+  //   };
 
-  // [] 배열 {} 객체 ()튜플
-  // setState에 ()가 들어가고 const ss = {}에서 const ss를 제외하고가 가능?>가능
+  //   const handleMinus = () => {
+  //     setState((prevState) => ({
+  //       ...prevState,
+  //       value: prevState.value - 1,
+  //     }));
+  //   };
 
-  const handleMinus = () => {
-    setState((prevState) => ({
-      ...prevState,
-      value: prevState.value - 1,
-    }));
-  };
+  const handlePlus = () => {};
+
+  const handleMinus = () => {};
 
   // 5번
   //   const handlegreen = () => {

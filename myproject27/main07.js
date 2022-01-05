@@ -11,4 +11,3 @@ const bts_title_array = song_array
 //   console.log(title);
 // }
 console.log(bts_title_array);
-// 한줄로 나오게 하는 법?

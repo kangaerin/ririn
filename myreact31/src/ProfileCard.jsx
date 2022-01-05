@@ -28,7 +28,9 @@ function ProfileCard({ name, facebook, role, email, profileimage, setPageNo }) {
               VIEW MORE
             </a>
           </article>
-          <ul>
+          <ul> 
+
+            
             <FontAwesomeIcon icon={faFacebook} />
             <span style={{ margin: "10px" }}>{facebook}</span>
             <ul></ul>
