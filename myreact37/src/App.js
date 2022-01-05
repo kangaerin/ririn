@@ -1,9 +1,12 @@
+// import PageCounter from './pages/PageCounter';
+import PageTodoList from './pages/PageTodoList';
 import './App.css';
 
 function App() {
   return (
     <div>
-      <h1>안녕, 리액트!</h1>
+      {/* <PageCounter /> */}
+      <PageTodoList />
     </div>
   );
 }
