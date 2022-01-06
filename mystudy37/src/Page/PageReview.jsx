@@ -1,12 +1,7 @@
-import ReviewForm from '../components/ReviewForm';
+import ReviewList from 'components/ReviewList';
 
 function PageReview() {
-  return (
-    <div>
-      <h4>ReviewList</h4>
-      <hr />
-      <ReviewForm />
-    </div>
-  );
+  return <ReviewList />;
 }
+
 export default PageReview;
